@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <radialGradient id="vignette01" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#22201D"/>
+      <stop offset="60%" stop-color="#141312"/>
+      <stop offset="100%" stop-color="#0A0A09"/>
+    </radialGradient>
+    <pattern id="grid01" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FAF6EE" stroke-width="0.5" stroke-opacity="0.07"/>
+      <circle cx="0" cy="0" r="1.2" fill="#EF5A2A" fill-opacity="0.4"/>
+    </pattern>
+    <filter id="glow01">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#vignette01)"/>
+  <rect width="1600" height="1000" fill="url(#grid01)"/>
+
+  <!-- Left Studio Plate: Blackboard / Whiteboard Ideation -->
+  <g transform="translate(100, 100)">
+    <rect width="780" height="800" rx="4" fill="#1C1A17" stroke="#FAF6EE" stroke-opacity="0.15" stroke-width="1.5"/>
+    <text x="50" y="70" font-family="'Dosis', sans-serif" font-size="14" font-weight="700" fill="#EF5A2A" letter-spacing="4">NEXUS CHAPTER ARCHIVE // 01 QUESTION</text>
+    <text x="50" y="110" font-family="'Fraunces', serif" font-size="32" font-weight="700" fill="#FAF6EE">The Fundamental Query</text>
+    <text x="50" y="145" font-family="'Bitter', serif" font-size="16" fill="#A8A29E" font-style="italic">Why do tools isolate our senses rather than amplify them?</text>
+    
+    <line x1="50" y1="180" x2="730" y2="180" stroke="#FAF6EE" stroke-opacity="0.1" stroke-width="1"/>
+
+    <!-- Geometric & System Node Formations -->
+    <g transform="translate(80, 240)">
+      <circle cx="160" cy="160" r="140" fill="none" stroke="#EF5A2A" stroke-width="1.5" stroke-dasharray="6,6"/>
+      <circle cx="160" cy="160" r="90" fill="none" stroke="#FAF6EE" stroke-opacity="0.3" stroke-width="1.5"/>
+      <circle cx="160" cy="160" r="10" fill="#EF5A2A"/>
+
+      <!-- Tangent vectors -->
+      <line x1="160" y1="20" x2="480" y2="100" stroke="#FAF6EE" stroke-opacity="0.4" stroke-width="1.5"/>
+      <line x1="160" y1="300" x2="480" y2="220" stroke="#FAF6EE" stroke-opacity="0.4" stroke-width="1.5"/>
+      <rect x="440" y="70" width="160" height="180" rx="3" fill="#292622" stroke="#FAF6EE" stroke-opacity="0.2"/>
+      <text x="460" y="110" font-family="'Dosis', sans-serif" font-size="11" font-weight="600" fill="#EF5A2A" letter-spacing="2">SYNTHESIS NODE</text>
+      <text x="460" y="140" font-family="'Bitter', serif" font-size="13" fill="#FAF6EE">Latency &lt; 8ms</text>
+      <text x="460" y="170" font-family="'Bitter', serif" font-size="13" fill="#A8A29E">Tactile Feedback</text>
+      <text x="460" y="200" font-family="'Bitter', serif" font-size="13" fill="#A8A29E">Dynamic Variable Glyph</text>
+    </g>
+
+    <!-- Handwritten Marginalia / Equations -->
+    <g transform="translate(60, 620)" font-family="monospace" font-size="13" fill="#D6D0C4">
+      <text x="0" y="0">∫ ψ(t) · e^{-iωt} dt  =&gt;  Continuous Spatial Mapping</text>
+      <text x="0" y="30" fill="#EF5A2A">Δx · Δp ≥ ℏ/2  // Physical constraint boundaries</text>
+      <text x="0" y="60" fill="#8C827A">// Team Debate: October 14, 2026 // Critique Room 2B</text>
+    </g>
+  </g>
+
+  <!-- Right Perspective Diagram: Isometric Workshop Desk -->
+  <g transform="translate(940, 100)">
+    <rect width="560" height="800" rx="4" fill="#181614" stroke="#FAF6EE" stroke-opacity="0.12" stroke-width="1.5"/>
+    <text x="40" y="70" font-family="'Dosis', sans-serif" font-size="13" font-weight="700" fill="#A8A29E" letter-spacing="3">SKETCHBOOK SCAN #041</text>
+    
+    <!-- Isometric Grid Desk Scene -->
+    <g transform="translate(80, 200)">
+      <polygon points="200,0 400,100 200,200 0,100" fill="#252320" stroke="#FAF6EE" stroke-opacity="0.3" stroke-width="1.5"/>
+      <polygon points="0,100 200,200 200,380 0,280" fill="#1C1B18" stroke="#FAF6EE" stroke-opacity="0.2" stroke-width="1.5"/>
+      <polygon points="200,200 400,100 400,280 200,380" fill="#151412" stroke="#FAF6EE" stroke-opacity="0.2" stroke-width="1.5"/>
+
+      <!-- Milled Knob on Desk -->
+      <cylinder cx="200" cy="140" r="30" fill="#EF5A2A"/>
+      <circle cx="200" cy="130" r="35" fill="none" stroke="#EF5A2A" stroke-width="2"/>
+      <circle cx="200" cy="130" r="4" fill="#EF5A2A"/>
+      <line x1="200" y1="95" x2="200" y2="65" stroke="#EF5A2A" stroke-width="1.5"/>
+      <text x="215" y="70" font-family="'Dosis', sans-serif" font-size="11" font-weight="700" fill="#EF5A2A">ROTARY ENCODER</text>
+    </g>
+
+    <text x="40" y="730" font-family="'Bitter', serif" font-size="14" fill="#78716C">"Every breakthrough starts as an uncomfortable conversation across disciplines."</text>
+  </g>
+</svg>

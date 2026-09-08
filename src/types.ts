@@ -11,22 +11,77 @@ export interface NavItem {
   description?: string;
 }
 
-export interface Project {
+export interface ProjectContributor {
+  name: string;
+  role?: string;
+  domain?: string;
+  github?: string;
+  avatar?: string;
+}
+
+export interface ProjectDeployment {
+  frontend?: string;
+  backend?: string;
+  liveUrl?: string;
+  platform?: string;
+}
+
+export interface ProjectArchitecture {
+  overview?: string;
+  lifecycle?: string[];
+  components?: string[];
+  diagram?: string;
+}
+
+export interface ProjectTechnologies {
+  frontend?: string[];
+  backend?: string[];
+  database?: string[];
+  devops?: string[];
+  libraries?: string[];
+  all?: string[];
+}
+
+export interface NexusProject {
   id: string;
-  projectNumber: string; // e.g. "NXS / 001"
+  nexusEdition: string;
+  name: string;
+  shortName: string;
+  subtitle?: string;
+  description: string;
+  problem?: string;
+  solution?: string;
+  domains: string[];
+  users?: string[];
+  features: string[];
+  architecture?: ProjectArchitecture | string;
+  technologies: ProjectTechnologies | string[];
+  integrations?: string[];
+  workflow?: string[];
+  deployment?: ProjectDeployment;
+  repository?: string;
+  frontend?: string;
+  backend?: string;
+  contributors?: ProjectContributor[];
+  futurePlans?: string[];
+  documentationSource?: string;
+  status: 'Active' | 'Completed' | 'Incubating' | 'In Development' | 'Production' | string;
+
+  // Backward compatibility fields for existing UI components
+  projectNumber: string; // e.g. "NEXUS E1"
   title: string;
-  category: 'Technology' | 'Creative Production' | 'Physical Computing' | 'Interactive Systems' | 'Community Tools' | 'Research & Software';
+  category: 'Technology' | 'Creative Production' | 'Physical Computing' | 'Interactive Systems' | 'Community Tools' | 'Research & Software' | string;
   year: string;
   summary: string;
-  description: string;
-  disciplines: string; // e.g. "TECH × EDUCATION"
-  status: 'Active' | 'Completed' | 'Incubating';
+  disciplines: string;
   leadStudents: string[];
   tags: string[];
   deliverables?: string[];
   githubUrl?: string;
   demoUrl?: string;
 }
+
+export type Project = NexusProject;
 
 export interface TeamMember {
   id: string;

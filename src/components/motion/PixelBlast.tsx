@@ -126,14 +126,14 @@ uniform vec4 u_ripple2;
 
 // Fast pseudo-random hash
 float hash12(vec2 p) {
-  vec3 p3 = fract(vec3(p.xyx) * 0.1031);
-  p3 += dot(p3, p3.yzx + 33.33);
+  vec3 p3 = fract(p.xyx * 0.1031);
+  p3 += dot(p3, p3.yzx + vec3(33.33, 33.33, 33.33));
   return fract((p3.x + p3.y) * p3.z);
 }
 
 vec2 hash22(vec2 p) {
-  vec3 p3 = fract(vec3(p.xyx) * vec3(0.1031, 0.1030, 0.0973));
-  p3 += dot(p3, p3.yzx + 33.33);
+  vec3 p3 = fract(p.xyx * vec3(0.1031, 0.1030, 0.0973));
+  p3 += dot(p3, p3.yzx + vec3(33.33, 33.33, 33.33));
   return fract((p3.xx + p3.yz) * p3.zy);
 }
 
@@ -162,11 +162,11 @@ void main() {
   vec2 uv = v_uv;
   
   // 1. EARLY DISCARD FOR QUIET ZONE CORE (Zero computation overhead for protected central X)
-  vec2 quietOffset = (uv - u_quietCenter) / max(vec2(0.01), u_quietRadius);
+  vec2 quietOffset = (uv - u_quietCenter) / max(vec2(0.01, 0.01), u_quietRadius);
   float distToQuietCenter = length(quietOffset);
 
   if (distToQuietCenter < 0.45) {
-    gl_FragColor = vec4(0.0);
+    gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
     return;
   }
 
@@ -195,7 +195,7 @@ void main() {
 
   if (u_cursorInfluence > 0.01 && cursorProximity > 0.01) {
     vec2 cursorDelta = (uv - u_mouse);
-    vec2 cursorDir = normalize(cursorDelta + vec2(0.0001));
+    vec2 cursorDir = normalize(cursorDelta + vec2(0.0001, 0.0001));
     float pushFactor = sin(cursorProximity * 3.14159) * 0.035 * u_cursorInfluence;
     warpedUv += cursorDir * pushFactor * finalQuietZoneFactor;
     cursorExcitation = cursorProximity * u_cursorInfluence * finalQuietZoneFactor;
@@ -209,7 +209,7 @@ void main() {
     ) * u_liquidStrength * 0.02;
 
     float n = fbm(uv * u_patternScale + vec2(t * 0.2, -t * 0.15));
-    liquidOffset += (vec2(n) - 0.5) * u_liquidStrength * 0.03;
+    liquidOffset += (vec2(n, n) - vec2(0.5, 0.5)) * u_liquidStrength * 0.03;
 
     warpedUv += liquidOffset * finalQuietZoneFactor;
   }
@@ -218,36 +218,52 @@ void main() {
   float rippleDisplacement = 0.0;
   float ripplePulse = 0.0;
   if (u_enableRipples > 0.5) {
-    vec4 ripples[3];
-    ripples[0] = u_ripple0;
-    ripples[1] = u_ripple1;
-    ripples[2] = u_ripple2;
-
-    for (int i = 0; i < 3; i++) {
-      vec4 rip = ripples[i];
-      if (rip.z > 0.0) {
-        float age = u_time - rip.z;
-        if (age >= 0.0 && age < 2.5) {
-          float radius = age * u_rippleSpeed;
-          float d = length(uv - rip.xy);
-          float ring = abs(d - radius);
-          float ringIntensity = smoothstep(u_rippleThickness, 0.0, ring);
-          float decay = exp(-age * 1.8) * rip.w * u_rippleIntensity;
-          rippleDisplacement += sin(ring * 40.0 - age * 8.0) * ringIntensity * decay * 0.015;
-          ripplePulse += ringIntensity * decay;
-        }
+    if (u_ripple0.z > 0.0) {
+      float age0 = u_time - u_ripple0.z;
+      if (age0 >= 0.0 && age0 < 2.5) {
+        float radius0 = age0 * u_rippleSpeed;
+        float d0 = length(uv - u_ripple0.xy);
+        float ring0 = abs(d0 - radius0);
+        float ringIntensity0 = smoothstep(u_rippleThickness, 0.0, ring0);
+        float decay0 = exp(-age0 * 1.8) * u_ripple0.w * u_rippleIntensity;
+        rippleDisplacement += sin(ring0 * 40.0 - age0 * 8.0) * ringIntensity0 * decay0 * 0.015;
+        ripplePulse += ringIntensity0 * decay0;
+      }
+    }
+    if (u_ripple1.z > 0.0) {
+      float age1 = u_time - u_ripple1.z;
+      if (age1 >= 0.0 && age1 < 2.5) {
+        float radius1 = age1 * u_rippleSpeed;
+        float d1 = length(uv - u_ripple1.xy);
+        float ring1 = abs(d1 - radius1);
+        float ringIntensity1 = smoothstep(u_rippleThickness, 0.0, ring1);
+        float decay1 = exp(-age1 * 1.8) * u_ripple1.w * u_rippleIntensity;
+        rippleDisplacement += sin(ring1 * 40.0 - age1 * 8.0) * ringIntensity1 * decay1 * 0.015;
+        ripplePulse += ringIntensity1 * decay1;
+      }
+    }
+    if (u_ripple2.z > 0.0) {
+      float age2 = u_time - u_ripple2.z;
+      if (age2 >= 0.0 && age2 < 2.5) {
+        float radius2 = age2 * u_rippleSpeed;
+        float d2 = length(uv - u_ripple2.xy);
+        float ring2 = abs(d2 - radius2);
+        float ringIntensity2 = smoothstep(u_rippleThickness, 0.0, ring2);
+        float decay2 = exp(-age2 * 1.8) * u_ripple2.w * u_rippleIntensity;
+        rippleDisplacement += sin(ring2 * 40.0 - age2 * 8.0) * ringIntensity2 * decay2 * 0.015;
+        ripplePulse += ringIntensity2 * decay2;
       }
     }
     rippleDisplacement *= finalQuietZoneFactor;
     ripplePulse *= finalQuietZoneFactor;
-    warpedUv += vec2(rippleDisplacement);
+    warpedUv += vec2(rippleDisplacement, rippleDisplacement);
   }
 
   // 6. PIXEL DISCRETIZATION
   float effectivePixelSize = max(2.0, u_pixelSize);
   vec2 pixelGrid = u_resolution / effectivePixelSize;
   vec2 pixelCell = floor(warpedUv * pixelGrid);
-  vec2 cellUv = fract(warpedUv * pixelGrid) - 0.5;
+  vec2 cellUv = fract(warpedUv * pixelGrid) - vec2(0.5, 0.5);
 
   // Cell randomized properties
   vec2 cellRnd = hash22(pixelCell);
@@ -269,7 +285,7 @@ void main() {
   densityCheck += cursorExcitation * 0.12;
 
   if (densityCheck < cellThreshold) {
-    gl_FragColor = vec4(0.0);
+    gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
     return;
   }
 
@@ -293,7 +309,7 @@ void main() {
   float pixelMask = 1.0 - smoothstep(baseRadius - 0.08, baseRadius + 0.04, shapeDist);
 
   if (pixelMask <= 0.01) {
-    gl_FragColor = vec4(0.0);
+    gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
     return;
   }
 
@@ -301,7 +317,7 @@ void main() {
   float colorMix = cellRnd.x * 0.4 + cellDensityNoise * 0.3 + ripplePulse * 0.3 + cursorExcitation * 0.35;
   vec3 pixelColor = mix(u_color, u_secondaryColor, clamp(colorMix, 0.0, 1.0));
 
-  vec2 edgeDist = abs(uv - 0.5) * 2.0;
+  vec2 edgeDist = abs(uv - vec2(0.5, 0.5)) * 2.0;
   float maxEdge = max(edgeDist.x, edgeDist.y);
   float edgeAlpha = 1.0 - smoothstep(1.0 - u_edgeFade, 1.0, maxEdge);
 
@@ -602,13 +618,22 @@ export const PixelBlast: React.FC<PixelBlastProps> = ({
     const container = containerRef.current;
     if (!canvas || !container) return;
 
-    const gl = canvas.getContext('webgl', {
+    const gl = (canvas.getContext('webgl2', {
       alpha: true,
       antialias: false,
       premultipliedAlpha: false,
       preserveDrawingBuffer: false,
       powerPreference: 'high-performance',
-    });
+    }) || canvas.getContext('webgl', {
+      alpha: true,
+      antialias: false,
+      premultipliedAlpha: false,
+      preserveDrawingBuffer: false,
+      powerPreference: 'high-performance',
+    }) || canvas.getContext('experimental-webgl', {
+      alpha: true,
+      antialias: false,
+    })) as WebGLRenderingContext | null;
 
     if (!gl) return;
     glRef.current = gl;

@@ -17,13 +17,14 @@ export interface StoryChapterInfo {
 export const STORY_CHAPTERS: StoryChapterInfo[] = [
   { id: 'chapter-01-intersection', number: '01', title: 'THE INTERSECTION', subtitle: 'Origin & Foundation' },
   { id: 'chapter-02-thesis', number: '02', title: 'WHY WE EXIST', subtitle: 'The Core Thesis' },
-  { id: 'chapter-03-problem', number: '03', title: 'THE STRUCTURAL PROBLEM', subtitle: 'Silos vs Squads' },
-  { id: 'chapter-04-connection', number: '04', title: 'THE CONNECTION', subtitle: 'Convergence of Disciplines' },
-  { id: 'chapter-05-process', number: '05', title: 'HOW WE WORK', subtitle: 'The 6-Week Sprint Loop' },
-  { id: 'chapter-06-artifacts', number: '06', title: 'WHAT WE BUILD', subtitle: 'The Shipped Artifacts' },
-  { id: 'chapter-07-people', number: '07', title: 'THE PEOPLE', subtitle: 'The Student Collective' },
-  { id: 'chapter-08-archive', number: '08', title: 'THE ARCHIVE', subtitle: 'Photographic Chronology' },
-  { id: 'chapter-09-horizon', number: '09', title: 'WHAT COMES NEXT', subtitle: 'The Horizon & Beyond' },
+  { id: 'chapter-horizontal-journey', number: '03', title: 'VISUAL ARCHIVE', subtitle: 'Chronology of Craft (01–07)' },
+  { id: 'chapter-03-problem', number: '04', title: 'THE STRUCTURAL PROBLEM', subtitle: 'Silos vs Squads' },
+  { id: 'chapter-04-connection', number: '05', title: 'THE CONNECTION', subtitle: 'Convergence of Disciplines' },
+  { id: 'chapter-05-process', number: '06', title: 'HOW WE WORK', subtitle: 'The 6-Week Sprint Loop' },
+  { id: 'chapter-06-artifacts', number: '07', title: 'WHAT WE BUILD', subtitle: 'The Shipped Artifacts' },
+  { id: 'chapter-07-people', number: '08', title: 'THE PEOPLE', subtitle: 'The Student Collective' },
+  { id: 'chapter-08-archive', number: '09', title: 'THE ARCHIVE', subtitle: 'Photographic Chronology' },
+  { id: 'chapter-09-horizon', number: '10', title: 'WHAT COMES NEXT', subtitle: 'The Horizon & Beyond' },
 ];
 
 interface StoryChapterHUDProps {
@@ -80,7 +81,7 @@ export const StoryChapterHUD: React.FC<StoryChapterHUDProps> = ({
               <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-[rgba(243,238,229,0.12)]">
                 <span className="font-dosis text-[10px] uppercase font-bold tracking-[0.24em] text-[#EF5A2A] flex items-center gap-1.5">
                   <Compass className="w-3 h-3" />
-                  <span>CHAPTERS (01–09)</span>
+                  <span>CHAPTERS (01–10)</span>
                 </span>
                 <span className="font-mono text-[10px] text-[#F3EEE5]/60 tracking-wider">
                   {Math.round(scrollProgress * 100)}%
@@ -145,7 +146,7 @@ export const StoryChapterHUD: React.FC<StoryChapterHUDProps> = ({
             className="flex items-center gap-2 px-2.5 py-1 bg-[rgba(243,238,229,0.06)] hover:bg-[rgba(243,238,229,0.12)] border border-[rgba(243,238,229,0.08)] rounded-[2px] transition-colors cursor-pointer group"
           >
             <span className="font-mono text-xs font-bold text-[#EF5A2A] tracking-[0.14em]">
-              {currentChapter.number} / 09
+              {currentChapter.number} / 10
             </span>
             <span className="w-[1px] h-3 bg-[rgba(243,238,229,0.2)]" />
             <span className="font-dosis text-xs font-bold tracking-[0.14em] uppercase text-[#F3EEE5] max-w-[120px] sm:max-w-[150px] truncate">

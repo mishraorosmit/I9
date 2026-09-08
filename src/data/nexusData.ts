@@ -3,111 +3,28 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Project, TeamMember, GalleryItem } from '../types.ts';
+import { TeamMember, GalleryItem } from '../types.ts';
+import {
+  PROJECTS_REGISTRY,
+  PROJECTS,
+  getProjects,
+  getProjectById,
+  getProjectsByEdition,
+  getProjectsByDomain,
+  getProjectRepository,
+  getProjectTechnologies,
+} from './projects.ts';
 
-export const PROJECTS: Project[] = [
-  {
-    id: 'nxs-001',
-    projectNumber: 'NXS / 001',
-    title: 'ALGOLAB',
-    year: '2026',
-    disciplines: 'TECH × EDUCATION',
-    category: 'Technology',
-    summary:
-      'A learning environment that helps students practice algorithms through structured repetition.',
-    description:
-      'Algolab was built by first- and second-year students frustrated with opaque online coding problem platforms. It breaks complex graph and tree algorithms into visual mental models, allowing learners to step forward and backward through memory state at their own pace.',
-    status: 'Active',
-    leadStudents: ['Arjun Sharma (CS)', 'Elena Vance (HCI)'],
-    tags: ['TypeScript', 'Canvas API', 'Algorithm Visualization', 'Open Source'],
-    deliverables: ['Interactive Web Sandbox', 'Curated Algorithm Visualizer', 'Self-paced Exercises'],
-    githubUrl: 'https://github.com/nexus-club/algolab',
-  },
-  {
-    id: 'nxs-002',
-    projectNumber: 'NXS / 002',
-    title: 'ARCANUM',
-    year: '2026',
-    disciplines: 'RESEARCH × SOFTWARE',
-    category: 'Research & Software',
-    summary:
-      'A collaborative academic communication platform built around structured discussion and shared knowledge.',
-    description:
-      'Arcanum replaces fragmented Discord servers and disorganized chat groups with threaded, citation-friendly discourse rooms. Students attach lab notes, papers, and code snippets directly to debate points, keeping knowledge permanently indexed.',
-    status: 'Active',
-    leadStudents: ['Rohan Mehta (ECE)', 'Maya Lin (Media Arts)'],
-    tags: ['WebSockets', 'Markdown Engine', 'Knowledge Graph', 'Postgres'],
-    deliverables: ['Real-time Discourse Engine', 'Zotero Citation Sync', 'Campus Authentication'],
-    githubUrl: 'https://github.com/nexus-club/arcanum',
-  },
-  {
-    id: 'nxs-003',
-    projectNumber: 'NXS / 003',
-    title: 'CLUBSPHERE',
-    year: '2025',
-    disciplines: 'COMMUNITY × DESIGN × CODE',
-    category: 'Community Tools',
-    summary:
-      'A digital space connecting student communities, events and campus initiatives.',
-    description:
-      'Born out of a weekend hack sprint, Clubsphere gives student clubs a shared bulletin, calendar synchronization, and cross-club collaboration channels without needing proprietary corporate software.',
-    status: 'Completed',
-    leadStudents: ['Priya Nair (InfoSci)', 'Liam O’Connor (Design)'],
-    tags: ['Next.js', 'Tailwind', 'iCal Integration', 'Campus Directory'],
-    deliverables: ['Public Campus Calendar', 'Club Discovery Portal', 'Event RSVP System'],
-    demoUrl: 'https://clubsphere.nexus.campus',
-  },
-  {
-    id: 'nxs-004',
-    projectNumber: 'NXS / 004',
-    title: 'VOXEN',
-    year: '2026',
-    disciplines: 'HARDWARE × INTERACTION × DESIGN',
-    category: 'Physical Computing',
-    summary:
-      'A modular tactile MIDI controller carved from reclaimed wood with capacitive touch sensors.',
-    description:
-      'Built in collaboration with the university woodshop and electronic music guild, Voxen combines precision digital potentiometers, capacitive touch strips, and USB-MIDI class compliance for live audio performance.',
-    status: 'Active',
-    leadStudents: ['Daniel Kim (Mechanical Eng)', 'Maya Lin (Media Arts)'],
-    tags: ['Arduino / C++', 'CNC Milling', 'USB MIDI', 'Industrial Design'],
-    deliverables: ['Physical Hardware Prototype', 'Custom Firmware', 'Open CAD Schematics'],
-    githubUrl: 'https://github.com/nexus-club/voxen-midi',
-  },
-  {
-    id: 'nxs-005',
-    projectNumber: 'NXS / 005',
-    title: 'HABITAT',
-    year: '2025',
-    disciplines: 'IOT × EMBEDDED × ECOLOGY',
-    category: 'Physical Computing',
-    summary:
-      'Microclimate monitoring mesh network for the campus greenhouse research facilities.',
-    description:
-      'Low-power solar-charged micro-nodes deployed across botany research tents measuring soil moisture, humidity gradients, and photosynthetic active radiation.',
-    status: 'Completed',
-    leadStudents: ['Sofia Rossi (Env Sci)', 'Arjun Sharma (CS)'],
-    tags: ['ESP32', 'LoRa Mesh', 'Grafana Dashboard', 'Solar Harvesting'],
-    deliverables: ['12 Deployed Sensor Nodes', 'Telemetry Dashboard', 'Automated Alerting'],
-  },
-  {
-    id: 'nxs-006',
-    projectNumber: 'NXS / 006',
-    title: 'TYPESTREAM',
-    year: '2026',
-    disciplines: 'DESIGN × WEB TOOLS',
-    category: 'Creative Production',
-    summary:
-      'An open-source typographic variable font playground built for student publication designers.',
-    description:
-      'A zero-friction browser tool that lets student typesetters, zine editors, and web designers inspect variable font axes, generate CSS font-variation-settings, and preview glyph sets under real editorial conditions.',
-    status: 'Active',
-    leadStudents: ['Sofia Rossi (Design)', 'Rohan Mehta (ECE)'],
-    tags: ['Opentype.js', 'Variable Fonts', 'SVG Export', 'CSS Tooling'],
-    deliverables: ['Browser Variable Font Tester', 'CSS Export Utility', 'Glyph Specimen Viewer'],
-    githubUrl: 'https://github.com/nexus-club/typestream',
-  },
-];
+export {
+  PROJECTS_REGISTRY,
+  PROJECTS,
+  getProjects,
+  getProjectById,
+  getProjectsByEdition,
+  getProjectsByDomain,
+  getProjectRepository,
+  getProjectTechnologies,
+};
 
 export const TEAM_MEMBERS: TeamMember[] = [
   // CORE TEAM

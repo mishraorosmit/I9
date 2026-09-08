@@ -58,7 +58,7 @@ void main() {
   vec3 rgb = vec3(colorR.r, colorG.g, colorB.b);
 
   // Subtle contrast and warm tonal lift matching NEXUS editorial palette
-  rgb = (rgb - 0.5) * 1.04 + 0.5;
+  rgb = (rgb - vec3(0.5, 0.5, 0.5)) * 1.04 + vec3(0.5, 0.5, 0.5);
 
   // Subtle warm amber sheen along wave crests when disturbed
   float sheen = smoothstep(0.01, 0.12, v_distortion) * 0.18 * u_interactionIntensity;

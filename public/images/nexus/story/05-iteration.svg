@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <radialGradient id="vignette05" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#24201C"/>
+      <stop offset="60%" stop-color="#141311"/>
+      <stop offset="100%" stop-color="#0A0A09"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#vignette05)"/>
+
+  <g transform="translate(100, 100)">
+    <rect width="1400" height="800" rx="4" fill="#181614" stroke="#FAF6EE" stroke-opacity="0.14" stroke-width="1.5"/>
+
+    <text x="60" y="70" font-family="'Dosis', sans-serif" font-size="14" font-weight="700" fill="#EF5A2A" letter-spacing="4">NEXUS CHAPTER ARCHIVE // 05 ITERATE</text>
+    <text x="60" y="115" font-family="'Fraunces', serif" font-size="34" font-weight="700" fill="#FAF6EE">The Redesign Matrix</text>
+    <text x="60" y="150" font-family="'Bitter', serif" font-size="16" fill="#A8A29E">Four prototyping cycles before shipping: discovering failure modes early.</text>
+
+    <!-- 4 Prototyping Cycle Stages in Grid -->
+    <g transform="translate(60, 200)">
+      <!-- Cycle 1 -->
+      <rect x="0" y="0" width="290" height="460" rx="3" fill="#1E1C19" stroke="#FAF6EE" stroke-opacity="0.12"/>
+      <text x="25" y="40" font-family="'Dosis', sans-serif" font-size="12" font-weight="700" fill="#A8A29E" letter-spacing="2">STAGE 01 // CARDBOARD</text>
+      <text x="25" y="70" font-family="'Fraunces', serif" font-size="20" font-weight="700" fill="#FAF6EE">Cardboard &amp; Tape</text>
+      <text x="25" y="105" font-family="'Bitter', serif" font-size="13" fill="#8C827A">Ergonomic shape validation; discovered 45° angle causes wrist fatigue after 20 minutes.</text>
+      <text x="25" y="420" font-family="monospace" font-size="11" fill="#EF5A2A">STATUS: SCRAPPED</text>
+
+      <!-- Cycle 2 -->
+      <rect x="320" y="0" width="290" height="460" rx="3" fill="#1E1C19" stroke="#FAF6EE" stroke-opacity="0.12"/>
+      <text x="345" y="40" font-family="'Dosis', sans-serif" font-size="12" font-weight="700" fill="#A8A29E" letter-spacing="2">STAGE 02 // 3D PRINT</text>
+      <text x="345" y="70" font-family="'Fraunces', serif" font-size="20" font-weight="700" fill="#FAF6EE">PLA Breadboard</text>
+      <text x="345" y="105" font-family="'Bitter', serif" font-size="13" fill="#8C827A">Wiring fits, but layer lines delaminate under thermal load. Button spacing too cramped.</text>
+      <text x="345" y="420" font-family="monospace" font-size="11" fill="#EF5A2A">STATUS: RE-ENGINEERED</text>
+
+      <!-- Cycle 3 -->
+      <rect x="640" y="0" width="290" height="460" rx="3" fill="#1E1C19" stroke="#FAF6EE" stroke-opacity="0.12"/>
+      <text x="665" y="40" font-family="'Dosis', sans-serif" font-size="12" font-weight="700" fill="#A8A29E" letter-spacing="2">STAGE 03 // CNC ACRYLIC</text>
+      <text x="665" y="70" font-family="'Fraunces', serif" font-size="20" font-weight="700" fill="#FAF6EE">Frosted Acrylic</text>
+      <text x="665" y="105" font-family="'Bitter', serif" font-size="13" fill="#8C827A">Optical diffusion works; capacitive latency reduced to 4.2ms. Weight balance ideal.</text>
+      <text x="665" y="420" font-family="monospace" font-size="11" fill="#EF5A2A">STATUS: APPROVED FOR WOOD</text>
+
+      <!-- Cycle 4 -->
+      <rect x="960" y="0" width="290" height="460" rx="3" fill="#24211D" stroke="#EF5A2A" stroke-width="2"/>
+      <text x="985" y="40" font-family="'Dosis', sans-serif" font-size="12" font-weight="700" fill="#EF5A2A" letter-spacing="2">STAGE 04 // FINAL V1.0</text>
+      <text x="985" y="70" font-family="'Fraunces', serif" font-size="20" font-weight="700" fill="#FAF6EE">Walnut &amp; Brass</text>
+      <text x="985" y="105" font-family="'Bitter', serif" font-size="13" fill="#D6D0C4">Flawless ergonomic curve, zero dropped frames, tactile click feedback confirmed.</text>
+      <text x="985" y="420" font-family="monospace" font-size="11" fill="#22C55E">STATUS: SHIPPED</text>
+    </g>
+
+    <text x="60" y="740" font-family="'Bitter', serif" font-size="14" fill="#78716C">"The mark of a serious builder is not avoiding mistakes, but how quickly you learn from the debris."</text>
+  </g>
+</svg>

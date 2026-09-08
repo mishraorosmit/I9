@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <radialGradient id="vignette06" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#261F1A"/>
+      <stop offset="60%" stop-color="#161310"/>
+      <stop offset="100%" stop-color="#0A0A09"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#vignette06)"/>
+
+  <g transform="translate(100, 100)">
+    <rect width="1400" height="800" rx="4" fill="#181614" stroke="#FAF6EE" stroke-opacity="0.14" stroke-width="1.5"/>
+
+    <text x="60" y="70" font-family="'Dosis', sans-serif" font-size="14" font-weight="700" fill="#EF5A2A" letter-spacing="4">NEXUS CHAPTER ARCHIVE // 06 PUBLIC SHARE</text>
+    <text x="60" y="115" font-family="'Fraunces', serif" font-size="34" font-weight="700" fill="#FAF6EE">The Courtyard Demo Exhibition</text>
+    <text x="60" y="150" font-family="'Bitter', serif" font-size="16" fill="#A8A29E">Putting student instruments into the hands of hundreds of visiting campus peers.</text>
+
+    <!-- Main Live Demo Stage Art -->
+    <g transform="translate(60, 200)">
+      <rect width="840" height="480" rx="3" fill="#201D19" stroke="#FAF6EE" stroke-opacity="0.2"/>
+      
+      <!-- Projection Screen Glow -->
+      <rect x="80" y="40" width="680" height="340" rx="2" fill="#0D0E13" stroke="#EF5A2A" stroke-width="1.5"/>
+      <text x="420" y="180" font-family="'Fraunces', serif" font-size="28" font-weight="700" fill="#FAF6EE" text-anchor="middle">LIVE PHYSICAL AUDIOSPHERE</text>
+      <text x="420" y="220" font-family="'Dosis', sans-serif" font-size="14" font-weight="600" fill="#EF5A2A" letter-spacing="4" text-anchor="middle">INTERACTIVE PERFORMANCE RUNTIME</text>
+
+      <!-- Wave visualizer on screen -->
+      <path d="M 120 300 C 240 240 360 360 480 300 S 600 240 720 300" fill="none" stroke="#EF5A2A" stroke-width="3"/>
+      <path d="M 120 310 C 240 270 360 330 480 290 S 600 270 720 310" fill="none" stroke="#FAF6EE" stroke-opacity="0.4" stroke-width="1.5"/>
+    </g>
+
+    <!-- Live Telemetry Side Panel -->
+    <g transform="translate(940, 200)">
+      <rect width="400" height="480" rx="3" fill="#211E1A" stroke="#FAF6EE" stroke-opacity="0.15"/>
+      <text x="30" y="45" font-family="'Dosis', sans-serif" font-size="13" font-weight="700" fill="#EF5A2A" letter-spacing="2">DEMO TELEMETRY</text>
+
+      <g transform="translate(30, 90)" font-family="'Bitter', serif" font-size="14" fill="#D6D0C4">
+        <text y="0">Visitors Tested: 420+ students</text>
+        <text y="35">Average Session: 4.8 minutes</text>
+        <text y="70">Sensor Actuations: 18,400</text>
+        <text y="105">Crash Count: 0</text>
+        <text y="140">Open Source Clones: 34</text>
+      </g>
+    </g>
+
+    <text x="60" y="740" font-family="'Bitter', serif" font-size="14" fill="#78716C">"A project only becomes complete when someone who had nothing to do with building it falls in love with using it."</text>
+  </g>
+</svg>

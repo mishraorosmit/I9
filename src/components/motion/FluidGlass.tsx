@@ -88,7 +88,7 @@ float getGlassHeight(vec2 uv, float t) {
   float mouseBulge = exp(-dist * 6.0) * 0.5 * u_hover;
   
   // Outer pill/rounded meniscus boundary
-  vec2 d = abs(uv - vec2(0.5)) * 2.0;
+  vec2 d = abs(uv - vec2(0.5, 0.5)) * 2.0;
   float borderDist = length(max(d - vec2(0.75, 0.65), 0.0));
   float meniscus = smoothstep(0.35, 0.0, borderDist);
 

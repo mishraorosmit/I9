@@ -74,7 +74,7 @@ export default function App() {
   const isProjectsWorkspace = currentRoute === '/projects';
 
   return (
-    <div className={`min-h-screen flex flex-col ${isProjectsWorkspace ? 'bg-[#0D0E13] text-[#F3EEE5]' : 'bg-[#F3EEE5] text-[#0A0A09]'}`}>
+    <div className="min-h-screen flex flex-col bg-[#F3EEE5] text-[#0A0A09]">
       {/* Cinematic Brand Preloader: "THE X IS THE NEXUS" */}
       {showPreloader && (
         <CinematicPreloader

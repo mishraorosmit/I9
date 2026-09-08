@@ -5,27 +5,27 @@
 
 import React from 'react';
 import { AppRoute } from '../types.ts';
-import { LinuxDesktop } from '../components/linux/LinuxDesktop.tsx';
+import { ArchiveCanvas } from '../components/projects/ArchiveCanvas.tsx';
 
 interface ProjectsPageProps {
   onRouteChange: (route: AppRoute) => void;
 }
 
 /**
- * PROJECTS PAGE — NEXUS LINUX WORKSPACE EXPERIENCE
+ * PROJECTS PAGE — NEXUS PROJECT ARCHIVE / OPERATING ENVIRONMENT
  *
- * An interactive, Linux-like desktop workstation environment where every
- * project is mounted into a virtual filesystem as an interactive folder/application.
- * Includes top system bar, multi-window manager, simulated bash terminal,
- * file manager explorer, and contextual action menus with direct access to
- * real student project artifacts and GitHub repositories.
+ * An intentional NEXUS digital archive and operating environment for ideas.
+ * Projects exist as carefully positioned project folders/objects along an
+ * evolutionary trajectory (E1 → E2 → E3 → E4 → E5).
+ * Styled in warm cream, charcoal typography, and restrained NEXUS orange.
  */
 export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onRouteChange }) => {
   return (
-    <div id="nexus-projects-workspace" className="w-full h-full min-h-screen bg-[#0D0E13]">
-      <LinuxDesktop onRouteChange={onRouteChange} />
+    <div id="nexus-projects-workspace" className="w-full h-full min-h-screen bg-[#F3EEE5]">
+      <ArchiveCanvas onRouteChange={onRouteChange} />
     </div>
   );
 };
 
 export default ProjectsPage;
+

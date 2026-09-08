@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <radialGradient id="vignette03" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#231F1C"/>
+      <stop offset="60%" stop-color="#141311"/>
+      <stop offset="100%" stop-color="#0A0A09"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#vignette03)"/>
+
+  <!-- Main Oscilloscope Display Console -->
+  <g transform="translate(100, 100)">
+    <rect width="1400" height="800" rx="4" fill="#141816" stroke="#22C55E" stroke-opacity="0.3" stroke-width="2"/>
+
+    <!-- Header -->
+    <g transform="translate(50, 60)">
+      <text font-family="'Dosis', sans-serif" font-size="14" font-weight="700" fill="#22C55E" letter-spacing="4">TELEMETRY &amp; EXPERIMENTATION LAB // RIG 03</text>
+      <text y="40" font-family="'Fraunces', serif" font-size="32" font-weight="700" fill="#FAF6EE">Real-Time Waveform &amp; Optical Calibration</text>
+    </g>
+
+    <!-- Phosphor Green Waveform Graticule -->
+    <g transform="translate(60, 160)">
+      <rect width="840" height="520" rx="4" fill="#0A0E0C" stroke="#22C55E" stroke-opacity="0.4" stroke-width="1.5"/>
+      
+      <!-- Grid lines -->
+      <path d="M 0 65 H 840 M 0 130 H 840 M 0 195 H 840 M 0 260 H 840 M 0 325 H 840 M 0 390 H 840 M 0 455 H 840" stroke="#22C55E" stroke-opacity="0.1" stroke-width="1"/>
+      <path d="M 105 0 V 520 M 210 0 V 520 M 315 0 V 520 M 420 0 V 520 M 525 0 V 520 M 630 0 V 520 M 735 0 V 520" stroke="#22C55E" stroke-opacity="0.1" stroke-width="1"/>
+      
+      <!-- Primary Waveform (Sine + Harmonics) -->
+      <path d="M 0 260 Q 105 80 210 260 T 420 260 T 630 260 T 840 260" fill="none" stroke="#22C55E" stroke-width="3"/>
+      <!-- Secondary Distorted Waveform (Tactile Sensor Input) -->
+      <path d="M 0 260 Q 80 180 160 300 T 320 220 T 480 340 T 640 180 T 840 260" fill="none" stroke="#EF5A2A" stroke-width="2" stroke-opacity="0.9"/>
+
+      <text x="20" y="40" font-family="monospace" font-size="12" fill="#22C55E">CH1: 2.45 Vpp // 440 Hz SINE</text>
+      <text x="20" y="65" font-family="monospace" font-size="12" fill="#EF5A2A">CH2: CAPACITIVE TOUCH TELEMETRY</text>
+    </g>
+
+    <!-- Side Calibration Controls -->
+    <g transform="translate(940, 160)">
+      <rect width="400" height="520" rx="4" fill="#1B1C1A" stroke="#FAF6EE" stroke-opacity="0.15" stroke-width="1.5"/>
+      <text x="30" y="45" font-family="'Dosis', sans-serif" font-size="13" font-weight="700" fill="#EF5A2A" letter-spacing="2">SENSOR PARAMETERS</text>
+
+      <g transform="translate(30, 80)" font-family="monospace" font-size="12" fill="#FAF6EE">
+        <text y="0">Sampling Rate: 1,000 Hz</text>
+        <text y="30">Filter: 4-pole Butterworth</text>
+        <text y="60">ADC Resolution: 16-bit</text>
+        <text y="90">Tactile Pressure: 1.42 N</text>
+      </g>
+
+      <!-- Physical Knob Graphics -->
+      <g transform="translate(100, 260)">
+        <circle cx="60" cy="60" r="50" fill="#292723" stroke="#EF5A2A" stroke-width="2"/>
+        <circle cx="60" cy="60" r="35" fill="#1C1A17"/>
+        <line x1="60" y1="60" x2="60" y2="20" stroke="#EF5A2A" stroke-width="3"/>
+        <text x="60" y="135" font-family="'Dosis', sans-serif" font-size="11" font-weight="700" fill="#FAF6EE" text-anchor="middle">FREQUENCY</text>
+
+        <circle cx="200" cy="60" r="50" fill="#292723" stroke="#22C55E" stroke-width="2"/>
+        <circle cx="200" cy="60" r="35" fill="#1C1A17"/>
+        <line x1="200" y1="60" x2="225" y2="35" stroke="#22C55E" stroke-width="3"/>
+        <text x="200" y="135" font-family="'Dosis', sans-serif" font-size="11" font-weight="700" fill="#FAF6EE" text-anchor="middle">GAIN / SENS</text>
+      </g>
+    </g>
+
+    <text x="60" y="740" font-family="'Bitter', serif" font-size="14" fill="#78716C">"We do not guess latency; we measure it on the bench until the interaction feels instantaneous."</text>
+  </g>
+</svg>
