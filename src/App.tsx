@@ -9,6 +9,7 @@ import { Navbar } from './components/layout/Navbar.tsx';
 import { Footer } from './components/layout/Footer.tsx';
 import { ContextCursor } from './components/cursor/ContextCursor.tsx';
 import { CinematicPreloader } from './components/preloader/CinematicPreloader.tsx';
+import { PenguinProvider } from './components/mascot/PenguinContext.tsx';
 import { NexusPenguin } from './components/mascot/NexusPenguin.tsx';
 import { NexusAmbassadorStation } from './components/mascot/NexusAmbassadorStation.tsx';
 import { HomePage } from './pages/HomePage.tsx';
@@ -74,55 +75,55 @@ export default function App() {
   const isProjectsWorkspace = currentRoute === '/projects';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F3EEE5] text-[#0A0A09]">
-      {/* Cinematic Brand Preloader: "THE X IS THE NEXUS" */}
-      {showPreloader && (
-        <CinematicPreloader
-          onHandoffStart={() => setIsHandoffStarted(true)}
-          onComplete={() => {
-            setShowPreloader(false);
-            setIsHandoffStarted(true);
-          }}
-        />
-      )}
-
-      {/* Global Isolated Mascot Director (Active on standard website pages) */}
-      {!isProjectsWorkspace && (
-        <NexusPenguin currentRoute={currentRoute} preloaderFinished={!showPreloader} />
-      )}
-
-      {/* Contextual Cursor for fine-pointer desktop interactions */}
-      <ContextCursor />
-
-      {/* Persistent Global Responsive Navbar (Shown on all standard pages) */}
-      {!isProjectsWorkspace && (
-        <Navbar currentRoute={currentRoute} onRouteChange={handleRouteChange} />
-      )}
-
-      {/* Primary Route View */}
-      <main className="flex-1 w-full flex flex-col">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={currentRoute}
-            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 14 }}
-            animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
-            transition={{
-              duration: 0.45,
-              ease: [0.16, 1, 0.3, 1],
+    <PenguinProvider currentRoute={currentRoute} preloaderFinished={!showPreloader}>
+      <div className="min-h-screen flex flex-col bg-[#F3EEE5] text-[#0A0A09]">
+        {/* Cinematic Brand Preloader: "THE X IS THE NEXUS" */}
+        {showPreloader && (
+          <CinematicPreloader
+            onHandoffStart={() => setIsHandoffStarted(true)}
+            onComplete={() => {
+              setShowPreloader(false);
+              setIsHandoffStarted(true);
             }}
-            className="w-full flex-1 flex flex-col"
-          >
-            {renderCurrentPage()}
-          </motion.div>
-        </AnimatePresence>
-      </main>
+          />
+        )}
 
-      {/* Official NEXUS Mascot Ambassador Station (Interactive Playground right above Footer on standard pages) */}
-      {!isProjectsWorkspace && <NexusAmbassadorStation />}
+        {/* Global Isolated Mascot Director (Active across pages including Projects workspace) */}
+        <NexusPenguin />
 
-      {/* Persistent Global Footer (Shown on standard website pages) */}
-      {!isProjectsWorkspace && <Footer onRouteChange={handleRouteChange} />}
-    </div>
+        {/* Contextual Cursor for fine-pointer desktop interactions */}
+        <ContextCursor />
+
+        {/* Persistent Global Responsive Navbar (Shown on all standard pages) */}
+        {!isProjectsWorkspace && (
+          <Navbar currentRoute={currentRoute} onRouteChange={handleRouteChange} />
+        )}
+
+        {/* Primary Route View */}
+        <main className="flex-1 w-full flex flex-col">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={currentRoute}
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 14 }}
+              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+              exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
+              transition={{
+                duration: 0.45,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="w-full flex-1 flex flex-col"
+            >
+              {renderCurrentPage()}
+            </motion.div>
+          </AnimatePresence>
+        </main>
+
+        {/* Official NEXUS Mascot Ambassador Station (Interactive Playground right above Footer on standard pages) */}
+        {!isProjectsWorkspace && <NexusAmbassadorStation />}
+
+        {/* Persistent Global Footer (Shown on standard website pages) */}
+        {!isProjectsWorkspace && <Footer onRouteChange={handleRouteChange} />}
+      </div>
+    </PenguinProvider>
   );
 }
